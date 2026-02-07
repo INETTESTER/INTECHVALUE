@@ -1,0 +1,247 @@
+{
+    "data": [
+        {
+            "id": 2039661,
+            "land_no": "09-0000163619-0102",
+            "name": "-",
+            "area_amt": "11.346611534275",
+            "yield_amt": "20.0",
+            "approveSts": "1",
+            "areaSts": "1",
+            "land_no_ref": "test",
+            "wasted_space_amt": "1.0",
+            "suggestion": null,
+            "coordinates": [
+                {
+                    "lat": 15.276140084673228,
+                    "lng": 103.1787206669116
+                },
+                {
+                    "lat": 15.275991117407438,
+                    "lng": 103.17783966516627
+                },
+                {
+                    "lat": 15.27480806363326,
+                    "lng": 103.17774679762978
+                },
+                {
+                    "lat": 15.274663330139514,
+                    "lng": 103.1785507829047
+                }
+            ],
+            "point": {
+                "lat": 14.753059166666667,
+                "lng": 102.92649583333333
+            },
+            "cause_of_unapprove_other": null,
+            "farmer": null,
+            "supervisor": null,
+            "plantyear": {
+                "id": 9,
+                "code": "2526",
+                "name": "ปีการผลิต 2568/69",
+                "status": "1",
+                "code2": "6869"
+            },
+            "zone": null,
+            "ownership": {
+                "id": 1,
+                "name": "พื้นที่ตนเอง"
+            },
+            "plantCategory": {
+                "id": 1,
+                "code": "ER",
+                "name": "ปลายฝนขยาย",
+                "status": "1",
+                "main_plant_category_id": "1"
+            },
+            "province": null,
+            "district": null,
+            "subdistrict": null,
+            "village": null,
+            "levelOfTheArea": null,
+            "wastedSpace": null,
+            "images": [],
+            "mainPlantCategory": null,
+            "status": null,
+            "createdBy": {
+                "id": 1000001,
+                "name": "อดุลย์",
+                "surname": "วงศ์บันเทิง"
+            },
+            "updatedBy": {
+                "id": 1000001,
+                "name": "อดุลย์",
+                "surname": "วงศ์บันเทิง"
+            },
+            "plantSpecies": null,
+            "plant_date": null,
+            "root": "1",
+            "sequence": "1.0",
+            "created_at": "2026-07-02T06:43:03.000000Z",
+            "updated_at": "2026-07-02T06:43:03.000000Z"
+        },
+        {
+            "id": 2039660,
+            "land_no": "09-0000163619-0201",
+            "name": "-",
+            "area_amt": "11.346611534275",
+            "yield_amt": "20.0",
+            "approveSts": "1",
+            "areaSts": "1",
+            "land_no_ref": "test",
+            "wasted_space_amt": "1.0",
+            "suggestion": null,
+            "coordinates": [
+                {
+                    "lat": 15.276140084673228,
+                    "lng": 103.1787206669116
+                },
+                {
+                    "lat": 15.275991117407438,
+                    "lng": 103.17783966516627
+                },
+                {
+                    "lat": 15.27480806363326,
+                    "lng": 103.17774679762978
+                },
+                {
+                    "lat": 15.274663330139514,
+                    "lng": 103.1785507829047
+                }
+            ],
+            "point": {
+                "lat": 14.753059166666667,
+                "lng": 102.92649583333333
+            },
+            "cause_of_unapprove_other": null,
+            "farmer": null,
+            "supervisor": null,
+            "plantyear": {
+                "id": 9,
+                "code": "2526",
+                "name": "ปีการผลิต 2568/69",
+                "status": "1",
+                "code2": "6869"
+            },
+            "zone": null,
+            "ownership": {
+                "id": 1,
+                "name": "พื้นที่ตนเอง"
+            },
+            "plantCategory": {
+                "id": 1,
+                "code": "ER",
+                "name": "ปลายฝนขยาย",
+                "status": "1",
+                "main_plant_category_id": "1"
+            },
+            "province": null,
+            "district": null,
+            "subdistrict": null,
+            "village": null,
+            "levelOfTheArea": null,
+            "wastedSpace": null,
+            "images": [],
+            "mainPlantCategory": null,
+            "status": null,
+            "createdBy": {
+                "id": 1000001,
+                "name": "อดุลย์",
+                "surname": "วงศ์บันเทิง"
+            },
+            "updatedBy": {
+                "id": 1000001,
+                "name": "อดุลย์",
+                "surname": "วงศ์บันเทิง"
+            },
+            "plantSpecies": null,
+            "plant_date": null,
+            "root": "1",
+            "sequence": "1.0",
+            "created_at": "2026-07-02T06:41:38.000000Z",
+            "updated_at": "2026-07-02T06:41:38.000000Z"
+        },
+        {
+            "id": 2039659,
+            "land_no": "09-0000163619-0501",
+            "name": "-",
+            "area_amt": "11.346611534275",
+            "yield_amt": "20.0",
+            "approveSts": "1",
+            "areaSts": "1",
+            "land_no_ref": "test",
+            "wasted_space_amt": "1.0",
+            "suggestion": null,
+            "coordinates": [
+                {
+                    "lat": 15.276140084673228,
+                    "lng": 103.1787206669116
+                },
+                {
+                    "lat": 15.275991117407438,
+                    "lng": 103.17783966516627
+                },
+                {
+                    "lat": 15.27480806363326,
+                    "lng": 103.17774679762978
+                },
+                {
+                    "lat": 15.274663330139514,
+                    "lng": 103.1785507829047
+                }
+            ],
+            "point": {
+                "lat": 14.753059166666667,
+                "lng": 102.92649583333333
+            },
+            "cause_of_unapprove_other": null,
+            "farmer": null,
+            "supervisor": null,
+            "plantyear": {
+                "id": 9,
+                "code": "2526",
+                "name": "ปีการผลิต 2568/69",
+                "status": "1",
+                "code2": "6869"
+            },
+            "zone": null,
+            "ownership": {
+                "id": 1,
+                "name": "พื้นที่ตนเอง"
+            },
+            "plantCategory": {
+                "id": 1,
+                "code": "ER",
+                "name": "ปลายฝนขยาย",
+                "status": "1",
+                "main_plant_category_id": "1"
+            },
+            "province": null,
+            "district": null,
+            "subdistrict": null,
+            "village": null,
+            "levelOfTheArea": null,
+            "wastedSpace": null,
+            "images": [],
+            "mainPlantCategory": null,
+            "status": null,
+            "createdBy": {
+                "id": 1000001,
+                "name": "อดุลย์",
+                "surname": "วงศ์บันเทิง"
+            },
+            "updatedBy": {
+                "id": 1000001,
+                "name": "อดุลย์",
+                "surname": "วงศ์บันเทิง"
+            },
+            "plantSpecies": null,
+            "plant_date": null,
+            "root": "1",
+            "sequence": "1.0",
+            "created_at": "2026-07-02T06:41:38.000000Z",
+            "updated_at": "2026-07-02T06:41:38.000000Z"
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "metrics": {
+        "iterations": {
+            "count": 500,
+            "rate": 583.2025987507801
+        },
+        "vus": {
+            "value": 200,
+            "min": 200,
+            "max": 200
+        },
+        "vus_max": {
+            "max": 500,
+            "value": 500,
+            "min": 500
+        },
+        "data_sent": {
+            "count": 0,
+            "rate": 0
+        },
+        "data_received": {
+            "rate": 0,
+            "count": 0
+        },
+        "iteration_duration": {
+            "avg": 170.3885125999999,
+            "min": 0,
+            "med": 163.26115,
+            "max": 444.2493,
+            "p(90)": 314.27379,
+            "p(95)": 355.3848
+        }
+    },
+    "root_group": {
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {},
+        "checks": {}
+    }
+}
