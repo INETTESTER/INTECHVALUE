@@ -236,9 +236,9 @@ export default function () {    //เรียกใช้ API ใน export def
   // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
   //   console.log("ปีการผลิต Fail : " + response.status);
   // }
-  //response = Create_Areas(cid)
-  //error_check(response);
-  sleep(1)
+  // response = Create_Areas(cid)
+  // error_check(response);
+  // sleep(1)
 }
 
 
