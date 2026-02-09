@@ -7,7 +7,8 @@ const data2 = new SharedArray('id', function () {
 });
 export function Record_NewEvent(scenario, areaId) {
   const id = data2[scenario.iterationInTest];
-  const url = 'https://api.thunderinsure.com/api/v1/activity/newPlants';
+  //const url = 'https://api.thunderinsure.com/api/v1/activity/newPlants';
+  const url = 'https://api2.thunderinsure.com/api/v1/activity/newPlants';
 
   const payload = {
     //id: '' + id,

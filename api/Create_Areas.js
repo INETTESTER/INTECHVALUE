@@ -74,7 +74,8 @@ export function Create_Areas(cid) {
     }
 
 
-    const url = 'https://api.thunderinsure.com/api/v1/areas';
+    //const url = 'https://api.thunderinsure.com/api/v1/areas';
+    const url = 'https://api2.thunderinsure.com/api/v1/areas';
 
 
     const payload = {
