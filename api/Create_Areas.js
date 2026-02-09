@@ -4,9 +4,17 @@ import { token } from './env.js';
 const imgPath = open('../file/image.png', 'b'); // เปิดไฟล์ใน init stage
 
 export function Create_Areas(cid) {
-    const base = cid + '9-0000163619-'; // 14 ตัว
-    const suffix = `${__VU}${__ITER}`.padStart(4, '0'); // ให้ครบ 4 ตัว
-    const land_no = (base + suffix).slice(0, 18);
+
+    const suffix = `${Date.now()}${__VU}${__ITER}`.slice(-6); // ไม่ซ้ำแน่นอน
+    const base = (cid + '9-0000163619-').slice(0, 18 - suffix.length);
+    const land_no = base + suffix;
+    // const suffix = `${__VU}${__ITER}`.padStart(6, '0'); // 6 ตัว
+    // const base = (cid + '9-0000163619-').slice(0, 18 - suffix.length);
+    // const land_no = base + suffix; // รวม 18 ตัว
+
+    // const base = cid + '9-0000163619-'; // 14 ตัว
+    // const suffix = `${__VU}${__ITER}`.padStart(4, '0'); // ให้ครบ 4 ตัว
+    // const land_no = (base + suffix).slice(0, 18);
     // const base = cid + '9-0000163619-'; // 14 ตัว
     // const suffix = ((__VU * 1000) + __ITER).toString().padStart(4, '0').slice(-4);
     // const land_no = base + suffix;
