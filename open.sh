@@ -6,7 +6,7 @@
 ##########################################################################
                      API="Mobile" 
                      google_sheet="https://docs.google.com/spreadsheets/d/1MXJ0xm22Y4xktnULICOPsNNi6hY9MNle18j_LrsclDI/edit?gid=303761516#gid=303761516" 
-                     id="6"                 #เปลี่ยน id ทุกครั้งที่ยิง
+                     id="7"                 #เปลี่ยน id ทุกครั้งที่ยิง
                      user="50";            #จำนวนผู้ใช้งาน
                      duration="300";         #วินาที
                      scenario="4"           #scenario="1" ยิงเเบบกำหนด request (duration ได้แค่ 1 วินาที)
