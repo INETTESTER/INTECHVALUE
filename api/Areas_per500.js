@@ -11,6 +11,9 @@ export function Areas_per500() {
   };
 
   const response = http.get(url, params);
+  if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+    console.log("ดาวน์โหลดข้อมูลแปลง Fail : " + response.status);
+  }
 
   //console.log('Response body:', response.body);
   return response;
