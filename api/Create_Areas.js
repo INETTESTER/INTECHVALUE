@@ -13,8 +13,8 @@ export function Create_Areas(cid) {
     //console.log(land_no);
 
 
-    const url = 'https://api.thunderinsure.com/api/v1/areas';
-
+    //const url = 'https://api.thunderinsure.com/api/v1/areas';
+    const url = 'https://api2.thunderinsure.com/api/v1/areas';
     const payload = {
         land_no: '' + land_no,
         name: '-',

@@ -45,13 +45,13 @@ export default function () {    //เรียกใช้ API ใน export def
   const landNo = data.land_no;
   sleep(1);
 
-  // response = Areas_per500()
-  // error_check(response);
-  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
-  //   console.log("ดาวน์โหลดข้อมูลแปลง Fail : " + response.status);
-  //   return;
-  // }
-  // sleep(1);
+  response = Areas_per500()
+  error_check(response);
+  if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+    console.log("ดาวน์โหลดข้อมูลแปลง Fail : " + response.status);
+    return;
+  }
+  sleep(1);
 
   response = Record_NewEvent(scenario, areaId)
   error_check(response);
