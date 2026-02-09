@@ -12,6 +12,6 @@ export function Area_Detail() {
 
   const response = http.get(url, params);
 
-  console.log('Response body:', response.body);
+  //console.log('Response body:', response.body);
   return response;
 }

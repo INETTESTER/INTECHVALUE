@@ -5,12 +5,13 @@ const data2 = new SharedArray('id', function () {
   const json = JSON.parse(open('../file/areas.json'));
   return json.data.map(item => item.id);
 });
-export function Record_NewEvent(scenario) {
+export function Record_NewEvent(scenario, areaId) {
   const id = data2[scenario.iterationInTest];
   const url = 'https://api.thunderinsure.com/api/v1/activity/newPlants';
 
   const payload = {
-    id: ''+id,
+    //id: '' + id,
+    id: '' + areaId,
     dry_herbicide_id: '1',
     plowing_blasting_id: '1',
     plowing_blasting_amt: '1',
@@ -57,6 +58,6 @@ export function Record_NewEvent(scenario) {
 
   const response = http.post(url, payload, params);
 
-  console.log('Response body:', response.body);
+  //console.log('Response body:', response.body);
   return response;
 }

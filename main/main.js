@@ -4,7 +4,7 @@ import { error_check } from '../check/check.js';
 import { scenario } from 'k6/execution';
 import { Login } from '../api/Login.js';
 import { Create_Areas } from '../api/Create_Areas.js';
-import { Areas } from '../api/Areas_All.js';
+import { Areas_All } from '../api/Areas_All.js';
 import { Areas_per500 } from '../api/Areas_per500.js';
 import { Update_Areas } from '../api/Update_Areas.js';
 import { Record_NewEvent } from '../api/Record_NewEvent.js';
@@ -15,6 +15,8 @@ import { Village } from '../api/Village.js';
 import { ApproveSts } from '../api/ApproveSts.js';
 import { Production_Years } from '../api/Production_Years.js';
 import { Area_Detail } from '../api/Area_Detail.js';
+import { GetCoordinatesByZoneId } from '../api/GetCoordinatesByZoneId.js';
+import { Update_Areas2 } from '../api/Update_Areas2.js';
 //import { DownloadFile, GetProfile, PostProfile, PostProfile_2, PostProfile_3, UploadFile } from '../api/example.js';
 
 
@@ -22,22 +24,220 @@ import { Area_Detail } from '../api/Area_Detail.js';
 //============================================================================
 
 export default function () {    //เรียกใช้ API ใน export default function
-  //========= Scenario 1 ============
-  //response = Login()
-  //response = Create_Areas(cid)
-  //response = Areas()
-  //response = Areas_per500()
-  //response = Area_Detail()
-  //response = Update_Areas(scenario)
-  //response = Record_NewEvent(scenario)
-  //response = Provinces()
-  //response = District()
-  //response = Sub_District()
-  //response = Village()
-  //response = ApproveSts()
-  //response = Production_Years()
-
+  //========= Scenario Mobile ===================================
+  response = Login()
   error_check(response);
+  if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+    console.log("เข้าสูระบบ Fail : " + response.status);
+    return;
+  }
+  sleep(1);
+
+  response = Create_Areas(cid)
+  error_check(response);
+  if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+    console.log("สร้างข้อมูลแปลง Fail : " + response.status);
+    return;
+  }
+  const data = response.json();
+  const areaId = data.id;
+  const landNo = data.land_no;
+  sleep(1);
+
+  response = Areas_per500()
+  error_check(response);
+  if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+    console.log("ดาวน์โหลดข้อมูลแปลง Fail : " + response.status);
+    return;
+  }
+  sleep(1);
+
+  response = Record_NewEvent(scenario, areaId)
+  error_check(response);
+  if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+    console.log("บันทึกกิจกรรมปลูกใหม่ Fail : " + response.status);
+    return;
+  }
+  sleep(1);
+
+
+  //========= Scenario Frontend ===================================
+  // response = Login()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("เข้าสูระบบ Fail : " + response.status);
+  //   return;
+  // }
+  // sleep(1);
+
+  // response = Areas_All()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("ข้อมูลแปลงทั้งหมด Fail : " + response.status);
+  //   return;
+  // }
+  // sleep(1);
+
+  // response = GetCoordinatesByZoneId()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("GetCoordinatesByZoneId Fail : " + response.status);
+  // }
+  // response = Provinces()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("จังหวัด Fail : " + response.status);
+  // }
+  // response = District()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("อำเภอ Fail : " + response.status);
+  // }
+  // response = Sub_District()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("ตำบล Fail : " + response.status);
+  // }
+  // response = Village()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("หมู่บ้าน  Fail : " + response.status);
+  // }
+  // sleep(1);
+
+  // response = Update_Areas2(scenario)
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("อัพเดรตข้อมูลแปลง Fail : " + response.status);
+  //   return;
+  // }
+  // sleep(1);
+
+  // response = Area_Detail()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("แสดงรายละเอียดข้อมูลแปลง Fail : " + response.status);
+  //   return;
+  // }
+  // sleep(1);
+
+  // response = ApproveSts()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("สถานะแปลง Fail : " + response.status);
+  // }
+  // response = Production_Years()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("ปีการผลิต Fail : " + response.status);
+  // }
+  // sleep(1);
+
+
+
+
+
+
+
+
+
+
+  // response = Login()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("เข้าสูระบบ Fail : " + response.status);
+  //   return;
+  // }
+  // sleep(1);
+
+  // response = Create_Areas(cid)
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("สร้างข้อมูลแปลง Fail : " + response.status);
+  //   return;
+  // }
+  // const data = response.json();
+  // const areaId = data.id;
+  // const landNo = data.land_no;
+  // sleep(1);
+
+  // response = Areas_All()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("ข้อมูลแปลงทั้งหมด Fail : " + response.status);
+  //   return;
+  // }
+  // sleep(1);
+
+  // response = Areas_per500()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("ดาวน์โหลดข้อมูลแปลง Fail : " + response.status);
+  //   return;
+  // }
+  // sleep(1);
+
+  // response = Area_Detail()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("แสดงรายละเอียดข้อมูลแปลง Fail : " + response.status);
+  //   return;
+  // }
+  // sleep(1);
+
+  // response = Update_Areas(scenario, areaId, landNo)
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("อัพเดรตข้อมูลแปลง Fail : " + response.status);
+  //   return;
+  // }
+  // sleep(1);
+
+  // response = Record_NewEvent(scenario, areaId)
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("บันทึกกิจกรรมปลูกใหม่ Fail : " + response.status);
+  //   return;
+  // }
+  // sleep(1);
+  // //====================================================================================================================
+  // response = Provinces()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("จังหวัด Fail : " + response.status);
+  // }
+  // sleep(1);
+  // response = District()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("อำเภอ Fail : " + response.status);
+  // }
+  // sleep(1);
+  // response = Sub_District()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("ตำบล Fail : " + response.status);
+  // }
+  // sleep(1);
+  // response = Village()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("หมู่บ้าน  Fail : " + response.status);
+  // }
+  // sleep(1);
+  // response = ApproveSts()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("สถานะแปลง Fail : " + response.status);
+  // }
+  // sleep(1);
+  // response = Production_Years()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("ปีการผลิต Fail : " + response.status);
+  // }
+  //response = Create_Areas(cid)
+  //error_check(response);
   sleep(1)
 }
 
@@ -178,7 +378,7 @@ else if (scenariox == 4) {
     insecureSkipTLSVerify: true,
     stages: [
       { duration: '2m', target: user },  // ramp-up
-      { duration: '10m', target: user },  // steady load
+      { duration: '5m', target: user },  // steady load
       { duration: '2m', target: 0 },    // ramp-down
     ],
     thresholds: {

@@ -12,6 +12,6 @@ export function Production_Years() {
 
   const response = http.get(url, params);
 
-  console.log('Response body:', response.body);
+  //console.log('Response body:', response.body);
   return response;
 }

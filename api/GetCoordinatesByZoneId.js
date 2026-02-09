@@ -1,12 +1,12 @@
 import http from 'k6/http';
 import { token } from './env.js';
 
-export function Areas_per500() {
-  const url = 'https://api.thunderinsure.com/api/v1/area/dataAreas?per_page=500&page=1';
+export function GetCoordinatesByZoneId() {
+  const url = 'https://api.thunderinsure.com/api/v1/area/getCoordinatesByZoneId?zone_id=1&production_year_id=9';
 
   const params = {
     headers: {
-      'Authorization': 'Bearer ' + token,
+      Authorization: 'Bearer ' + token,
     },
   };
 

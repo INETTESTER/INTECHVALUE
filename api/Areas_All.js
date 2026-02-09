@@ -1,7 +1,7 @@
 import http from 'k6/http';
 import { token } from './env.js';
 
-export function Areas() {
+export function Areas_All() {
   const url = 'https://api.thunderinsure.com/api/v1/areas';
 
   const params = {
@@ -12,6 +12,6 @@ export function Areas() {
 
   const response = http.get(url, params);
 
-  console.log('Response body:', response.body);
+  //console.log('Response body:', response.body);
   return response;
 }

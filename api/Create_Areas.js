@@ -4,11 +4,15 @@ import { token } from './env.js';
 const imgPath = open('../file/image.png', 'b'); // เปิดไฟล์ใน init stage
 
 export function Create_Areas(cid) {
-    const base = '09-0000163619-'; // 14 ตัว
-    const suffix = `${__VU}${__ITER}${cid}`.padStart(4, '0'); // ให้ครบ 4 ตัว
-    const land_no = (base + suffix).slice(0, 18);
-
+    // const base = '09-0000163619-'; // 14 ตัว
+    // const suffix = `${__VU}${__ITER}${cid}`.padStart(4, '0'); // ให้ครบ 4 ตัว
+    // const land_no = (base + suffix).slice(0, 18);
+    const base = cid + '9-0000163619-'; // 14 ตัว
+    const suffix = ((__VU * 1000) + __ITER).toString().padStart(4, '0').slice(-4);
+    const land_no = base + suffix;
     //console.log(land_no);
+
+
     const url = 'https://api.thunderinsure.com/api/v1/areas';
 
     const payload = {
@@ -56,6 +60,6 @@ export function Create_Areas(cid) {
     };
 
     const response = http.post(url, payload, params);
-    console.log('Response body:', response.body);
+    //console.log('Response body:', response.body);
     return response;
 }

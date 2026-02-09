@@ -10,21 +10,15 @@ const data2 = new SharedArray('id', function () {
   return json.data.map(item => item.id);
 });
 
-export function Update_Areas(scenario,areaId,landNo) {
+export function Update_Areas2(scenario) {
   const land_no = data[scenario.iterationInTest];
   const id = data2[scenario.iterationInTest];
   // console.log(land_no);
   // console.log(id);
-  // const url = 'https://api.thunderinsure.com/api/v1/areas/' + id;
-
-  // const payload = JSON.stringify({
-  //   land_no: '' + land_no,
-  //   approveSts: 2,
-  // });
-  const url = 'https://api.thunderinsure.com/api/v1/areas/' + areaId;
+  const url = 'https://api.thunderinsure.com/api/v1/areas/' + id;
 
   const payload = JSON.stringify({
-    land_no: '' + landNo,
+    land_no: '' + land_no,
     approveSts: 2,
   });
 
