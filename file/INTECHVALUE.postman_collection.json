@@ -1,0 +1,1333 @@
+{
+  "info": {
+    "_postman_id": "4e3a1aaa-6e42-46db-b661-7d1cd8e62427",
+    "name": "INTECHVALUE",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52680299",
+    "_collection_link": "https://go.postman.co/collection/52680299-4e3a1aaa-6e42-46db-b661-7d1cd8e62427?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "เข้าสูระบบ ( Thunderinsure )",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "if (pm.response.code === 200) {",
+              "    const data = pm.response.json();",
+              "    pm.environment.set('token', data.access_token);",
+              "    pm.environment.set('access_token', data.access_token);",
+              "    pm.environment.set('refresh_token', data.refresh_token);",
+              "}"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "key": "client_id",
+              "value": "laravel-api",
+              "type": "text"
+            },
+            {
+              "key": "username",
+              "value": "SV013",
+              "type": "text"
+            },
+            {
+              "key": "password",
+              "value": "8888",
+              "type": "text"
+            },
+            {
+              "key": "grant_type",
+              "value": "password",
+              "type": "text"
+            },
+            {
+              "key": "scope",
+              "value": "openid profile email",
+              "type": "text",
+              "uuid": "ff495b3a-bbba-4280-9cc7-be020b1fb41c"
+            },
+            {
+              "key": "client_secret",
+              "value": "2ceuJyxkl1DmoEeCQa/Y0tR8UrDRAVIxLWOPio9W",
+              "type": "text",
+              "uuid": "845f24b8-f720-48f9-b438-658da5451f88"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://sso.thunderinsure.com/realms/thunder-insure/protocol/openid-connect/token",
+          "protocol": "https",
+          "host": [
+            "sso",
+            "thunderinsure",
+            "com"
+          ],
+          "path": [
+            "realms",
+            "thunder-insure",
+            "protocol",
+            "openid-connect",
+            "token"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "สร้างข้อมูลแปลง",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "land_no",
+              "value": "09-0000163619-9024",
+              "type": "text"
+            },
+            {
+              "key": "name",
+              "value": "-",
+              "type": "text"
+            },
+            {
+              "key": "area_amt",
+              "value": "11.346611534275",
+              "type": "text"
+            },
+            {
+              "key": "yield_amt",
+              "value": "20",
+              "type": "text"
+            },
+            {
+              "key": "approveSts",
+              "value": "1",
+              "type": "text"
+            },
+            {
+              "key": "point",
+              "value": "{\"lat\":14.753059166666667,\"lng\":102.92649583333333}",
+              "type": "text"
+            },
+            {
+              "key": "coordinates",
+              "value": "[{\"lat\":15.276140084673228,\"lng\":103.1787206669116},{\"lat\":15.275991117407438,\"lng\":103.17783966516627},{\"lat\":15.27480806363326,\"lng\":103.17774679762978},{\"lat\":15.274663330139514,\"lng\":103.1785507829047}]\n",
+              "type": "text"
+            },
+            {
+              "key": "supervisor_id",
+              "value": "11943",
+              "type": "text"
+            },
+            {
+              "key": "farmer_id",
+              "value": "11615",
+              "type": "text"
+            },
+            {
+              "key": "zone_id",
+              "value": "1",
+              "type": "text"
+            },
+            {
+              "key": "province_id",
+              "value": "1",
+              "type": "text"
+            },
+            {
+              "key": "district_id",
+              "value": "1",
+              "type": "text"
+            },
+            {
+              "key": "subdistrict_id",
+              "value": "1",
+              "type": "text"
+            },
+            {
+              "key": "village_id",
+              "value": "1",
+              "type": "text"
+            },
+            {
+              "key": "root",
+              "value": "1",
+              "type": "text"
+            },
+            {
+              "key": "sequence",
+              "value": "1",
+              "type": "text"
+            },
+            {
+              "key": "plant_cat_id",
+              "value": "1",
+              "type": "text"
+            },
+            {
+              "key": "ownership_id",
+              "value": "1",
+              "type": "text"
+            },
+            {
+              "key": "level_of_the_area_id",
+              "value": "1",
+              "type": "text"
+            },
+            {
+              "key": "wasted_space_id",
+              "value": "1",
+              "type": "text"
+            },
+            {
+              "key": "images[]",
+              "type": "file",
+              "src": [
+                "postman-cloud:///1ef62dbc-bfcb-41b0-9e12-1dc37e95073d",
+                "postman-cloud:///1ef62d90-dc2c-4bf0-b213-8f146e802fa3",
+                "postman-cloud:///1ef62d90-249f-4000-919f-1e23879687ec"
+              ]
+            },
+            {
+              "key": "land_no_ref",
+              "value": "test",
+              "type": "text"
+            },
+            {
+              "key": "production_year_id",
+              "value": "9",
+              "type": "text"
+            },
+            {
+              "key": "main_plant_category_id",
+              "value": "1",
+              "type": "text"
+            },
+            {
+              "key": "wasted_space_amt",
+              "value": "1",
+              "type": "text",
+              "uuid": "311df8b3-b60f-4ed9-9620-9938d4bf8c14"
+            },
+            {
+              "key": "areaSts",
+              "value": "1",
+              "type": "text",
+              "uuid": "a66cbeca-da3b-4a7f-9028-acf04ac26030"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/areas",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "areas"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ข้อมูลแปลง ( รายการข้อมูลแปลงทั้งหมด )",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": []
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/areas",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "areas"
+          ],
+          "query": [
+            {
+              "key": "startDate",
+              "value": "2024-07-28",
+              "description": "/* ค้นหาตามเวลาสร้างแปลง */",
+              "disabled": true
+            },
+            {
+              "key": "endDate",
+              "value": "2024-07-29",
+              "description": "/* ค้นหาตามเวลาสร้างแปลง */",
+              "disabled": true
+            },
+            {
+              "key": "approveSts",
+              "value": "2",
+              "description": "/* ค้นหาตามรหัสสถานะ */",
+              "disabled": true
+            },
+            {
+              "key": "farmerId",
+              "value": "46",
+              "description": "/* ค้นหาตามรหัสชาวไร่ */",
+              "disabled": true
+            },
+            {
+              "key": "supervisorId",
+              "value": "1",
+              "description": "/* ค้นหาตามรหัสนักส่งเสริม */",
+              "disabled": true
+            },
+            {
+              "key": "zoneId",
+              "value": "1",
+              "description": "/* ค้นหาตามรหัสเขตโซน */",
+              "disabled": true
+            },
+            {
+              "key": "ownershipId",
+              "value": "1",
+              "description": "/* ค้นหาตามรหัสกรมสิทธิ์ */",
+              "disabled": true
+            },
+            {
+              "key": "plantCatId",
+              "value": "1",
+              "description": "/* ค้นหาตามรหัสประเภทพืชอ้อย */",
+              "disabled": true
+            },
+            {
+              "key": "production_year_id",
+              "value": "7",
+              "description": " /* ค้นหาตามรหัสปีการผลิต */",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "landNo",
+              "value": "01-0000163502-0005",
+              "disabled": true
+            },
+            {
+              "key": "per_page",
+              "value": "1200",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ดาวน์โหลดข้อมูลแปลง ( เริ่มต้นดึงครั้งล่ะ 500 แปลง )",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": []
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/area/dataAreas?per_page=500&page=1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "area",
+            "dataAreas"
+          ],
+          "query": [
+            {
+              "key": "startDate",
+              "value": "2024-07-28",
+              "description": "/* ค้นหาตามเวลาสร้างแปลง */",
+              "disabled": true
+            },
+            {
+              "key": "endDate",
+              "value": "2024-07-29",
+              "description": "/* ค้นหาตามเวลาสร้างแปลง */",
+              "disabled": true
+            },
+            {
+              "key": "approveSts",
+              "value": "2",
+              "description": "/* ค้นหาตามรหัสสถานะ */",
+              "disabled": true
+            },
+            {
+              "key": "farmerId",
+              "value": "46",
+              "description": "/* ค้นหาตามรหัสชาวไร่ */",
+              "disabled": true
+            },
+            {
+              "key": "supervisorId",
+              "value": "1",
+              "description": "/* ค้นหาตามรหัสนักส่งเสริม */",
+              "disabled": true
+            },
+            {
+              "key": "landNo",
+              "value": "07-0000078606-0002",
+              "description": "/* ค้นหาตามรหัสรันแปลง */",
+              "disabled": true
+            },
+            {
+              "key": "zoneId",
+              "value": "1",
+              "description": "/* ค้นหาตามรหัสเขตโซน */",
+              "disabled": true
+            },
+            {
+              "key": "ownershipId",
+              "value": "1",
+              "description": "/* ค้นหาตามรหัสกรมสิทธิ์ */",
+              "disabled": true
+            },
+            {
+              "key": "plantCatId",
+              "value": "1",
+              "description": "/* ค้นหาตามรหัสประเภทพืชอ้อย */",
+              "disabled": true
+            },
+            {
+              "key": "production_year_id",
+              "value": "7",
+              "description": " /* ค้นหาตามรหัสปีการผลิต */",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "per_page",
+              "value": "500"
+            },
+            {
+              "key": "page",
+              "value": "1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "แสดงรายละเอียดข้อมูลแปลง",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/areas/1",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "areas",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "บันทึกกิจกรรมปลูกใหม่",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "id",
+              "value": "2",
+              "description": "รหัสไอดีแปลง",
+              "type": "text"
+            },
+            {
+              "key": "dry_herbicide_id",
+              "value": "1",
+              "description": "ยาคุมแห้ง",
+              "type": "text"
+            },
+            {
+              "key": "plowing_blasting_id",
+              "value": "1",
+              "description": "ไถระเบิดดินดาน",
+              "type": "text"
+            },
+            {
+              "key": "plowing_blasting_amt",
+              "value": "1",
+              "description": "ไถระเบิดดินดาน จำนวน ชม.",
+              "type": "text"
+            },
+            {
+              "key": "organic_fertilizer_id",
+              "value": "1",
+              "description": "ปุ๋ยอินทรีย์",
+              "type": "text"
+            },
+            {
+              "key": "fertilizer_type_id",
+              "value": "1",
+              "description": "ชนิดปุ๋ย",
+              "type": "text"
+            },
+            {
+              "key": "fertilizer_rate_amt",
+              "value": "1",
+              "description": "อัตรา กก./ไร่",
+              "type": "text"
+            },
+            {
+              "key": "fertilizer_created_at",
+              "value": "2024-09-13",
+              "description": "วันที่ใส่ (yyyy-mm-dd)",
+              "type": "text"
+            },
+            {
+              "key": "dolomite_id",
+              "value": "1",
+              "description": "โดโลไมท์",
+              "type": "text"
+            },
+            {
+              "key": "dolomite_rate_amt",
+              "value": "1",
+              "description": "อัตรา กก./ไร่ ",
+              "type": "text"
+            },
+            {
+              "key": "dolomite_created_at",
+              "value": "2024-09-05",
+              "description": "วันที่ใส่ (yyyy-mm-dd)",
+              "type": "text"
+            },
+            {
+              "key": "drainage_area_not_flooded_id",
+              "value": "1",
+              "description": "พื้นที่ระบายน้ำไม่ท่วมขัง",
+              "type": "text"
+            },
+            {
+              "key": "groove_distance_id",
+              "value": "1",
+              "description": "ระยะห่างของร่อง",
+              "type": "text"
+            },
+            {
+              "key": "groove_distance_more_160_cm_id",
+              "value": "1",
+              "description": "ระยะห่างของร่อง มากกว่า 160 cm",
+              "type": "text"
+            },
+            {
+              "key": "plant_species_id",
+              "value": "1",
+              "description": "พันธุ์พืช",
+              "type": "text"
+            },
+            {
+              "key": "breeding_id",
+              "value": "1",
+              "description": "คัดพันธุ์",
+              "type": "text"
+            },
+            {
+              "key": "weed_control_id",
+              "value": "1",
+              "description": "การกำจัดวัชพืช (คุมวัชพืช)",
+              "type": "text"
+            },
+            {
+              "key": "plant_disease_id",
+              "value": "1",
+              "description": "โรคพืช",
+              "type": "text"
+            },
+            {
+              "key": "plant_disease_type_id",
+              "value": "1",
+              "description": "ชนิดโรคพืช",
+              "type": "text"
+            },
+            {
+              "key": "plant_disease_percent_amt",
+              "value": "1",
+              "description": "ระบาด (%)",
+              "type": "text"
+            },
+            {
+              "key": "plant_disease_control_id",
+              "value": "1",
+              "description": "การกำจัดโรคพืช",
+              "type": "text"
+            },
+            {
+              "key": "plant_insect_id",
+              "value": "1",
+              "description": "แมลง",
+              "type": "text"
+            },
+            {
+              "key": "plant_insect_type_id",
+              "value": "1",
+              "description": "ชนิดแมลง",
+              "type": "text"
+            },
+            {
+              "key": "plant_insect_percent_amt_1",
+              "value": "1",
+              "description": " ระบาด (%)",
+              "type": "text"
+            },
+            {
+              "key": "plant_insect_percent_amt_2",
+              "value": "1",
+              "description": "เบียน (%)",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "plant_insect_control_id",
+              "value": "1",
+              "description": "การกำจัดแมลง",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "poon_khon_id",
+              "value": "1",
+              "description": "พูนโคน",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "crop_loss_id",
+              "value": "1",
+              "description": "สูญเสียในแปลง",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "crop_loss_total_amt",
+              "value": "1",
+              "description": "สูญเสียรวม(ไร่)",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "crop_loss_estimate_amt",
+              "value": "1",
+              "description": "ประเมิน(ตัน/ไร่)",
+              "type": "text"
+            },
+            {
+              "key": "causes_of_crop_loss_amt_1",
+              "value": "1",
+              "description": "ปริมาณตันรวม(ตัน)",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "causes_of_crop_loss_amt_2",
+              "value": "1",
+              "description": "หักสูญเสียตัดพันธ์รวม(ตัน)",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "causes_of_crop_loss_amt_3",
+              "value": "1",
+              "description": "หักสูญเสียจากการตัด(ตัน)",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "causes_of_crop_loss_ids[0]",
+              "value": "1",
+              "description": "สาเหตุการสูญเสียในแปลง - 0",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "causes_of_crop_loss_amt_4",
+              "value": "1",
+              "description": "ปริมาณอ้อยเข้าหีบจริง(ตัน)",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "plant_date",
+              "value": "2024-12-22",
+              "description": "วันปลูก",
+              "type": "text"
+            },
+            {
+              "key": "images[]",
+              "type": "file",
+              "src": [
+                "postman-cloud:///1ef62d90-dc2c-4bf0-b213-8f146e802fa3",
+                "postman-cloud:///1ef62d90-249f-4000-919f-1e23879687ec"
+              ],
+              "disabled": true
+            },
+            {
+              "key": "causeOfTheCollapses[0]",
+              "value": "1",
+              "description": "สาเหตุการหัก - 0",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "causeOfTheCollapses[1]",
+              "value": "2",
+              "description": "สาเหตุการหัก - 0",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "fertilizers[0][fertilizer_per_desired_yield_id]",
+              "value": "1",
+              "description": "ปุ๋ย( 0 ) - ใช้ปุ๋ยตามผลผลิตที่ต้องการ",
+              "type": "text"
+            },
+            {
+              "key": "fertilizers[0][fertilizer_per_desired_yield_rate_amt]",
+              "value": "1",
+              "description": "ปุ๋ย( 0 ) - อัตรา กก./ไร่",
+              "type": "text"
+            },
+            {
+              "key": "fertilizers[0][fertilizer_n]",
+              "value": "15",
+              "description": "ปุ๋ย( 0 ) - สูตร N",
+              "type": "text"
+            },
+            {
+              "key": "fertilizers[0][fertilizer_p]",
+              "value": "15",
+              "description": "ปุ๋ย( 0 ) - สูตร P",
+              "type": "text"
+            },
+            {
+              "key": "fertilizers[0][fertilizer_k]",
+              "value": "15",
+              "description": "ปุ๋ย( 0 ) - สูตร K",
+              "type": "text"
+            },
+            {
+              "key": "fertilizers[0][fertilization_date]",
+              "value": "2024-09-19",
+              "description": "ปุ๋ย( 0 ) -วันที่ใสปุ๋ย",
+              "type": "text"
+            },
+            {
+              "key": "causeOfTheCollapses[3]",
+              "value": "3",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "plantDiseaseTypes[0]",
+              "value": "1",
+              "description": "ปรเภทโรคพืช - 0",
+              "type": "text"
+            },
+            {
+              "key": "plantDiseaseTypes[1]",
+              "value": "2",
+              "description": "ปรเภทโรคพืช - 1",
+              "type": "text",
+              "disabled": true
+            },
+            {
+              "key": "plantInsectTypes[0]",
+              "value": "1",
+              "description": "ปรเภทแมลง   - 0",
+              "type": "text"
+            },
+            {
+              "key": "plantInsectTypes[1]",
+              "value": "2",
+              "description": "ปรเภทแมลง   - 1",
+              "type": "text"
+            },
+            {
+              "key": "germination_percentage_id",
+              "value": "1",
+              "description": "รหัสเปอร์เซ็นต์การงอก",
+              "type": "text",
+              "uuid": "b0a70862-e81e-4e79-8176-226267b65568"
+            },
+            {
+              "key": "group_maintenance_code",
+              "value": "012101",
+              "description": "กลุ่มบำรุงหรือกลุ่มสร้าง",
+              "type": "text",
+              "uuid": "dfab99c4-c42e-40ac-8fc9-38dde4728694"
+            }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/activity/newPlants",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "activity",
+            "newPlants"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "อัพเดรตข้อมูลแปลง( ใช้สำหรับอัพเดรตข้อมูลทั่วไป, อนุมัติ, ไม่อนุมัติ, ยกเลิก ...)",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\n    \"land_no\": \"02-0000060221-9009\",                    /* รหัสแปลง */\n    \"approveSts\": 2                                  /* รหัสสถานะ รออนุมัติ,อนุมัติ,ไม่อนุมัติ ยกเลิก ... */  \n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/areas/64015",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "areas",
+            "64015"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Provinces ( จังหวัด)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/provinces",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "provinces"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "District ( อำเภอ)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/districts/getDistrictByProvinceId?proviceId=20",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "districts",
+            "getDistrictByProvinceId"
+          ],
+          "query": [
+            {
+              "key": "proviceId",
+              "value": "20"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Sub District ( ตำบล)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/subDistricts/getSubDistrictsByDistrictId?districtId=230",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "subDistricts",
+            "getSubDistrictsByDistrictId"
+          ],
+          "query": [
+            {
+              "key": "districtId",
+              "value": "230"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Village ( หมู่บ้าน )",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/villages/getVillageBySubDistrictId?subDistrictId=1726",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "villages",
+            "getVillageBySubDistrictId"
+          ],
+          "query": [
+            {
+              "key": "subDistrictId",
+              "value": "1726"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "ApproveSts (สถานะแปลง )",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/approveSts",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "approveSts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Production Years (ปีการผลิต )",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "{{token}}",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/v1/productionYears",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "productionYears"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
