@@ -1,8 +1,8 @@
 import http from 'k6/http';
-import { token } from './env.js';
+import { token, url_, url_2 } from './env.js';
 
 export function District() {
-  const url = 'https://api.thunderinsure.com/api/v1/districts/getDistrictByProvinceId?proviceId=20';
+  const url = url_ + '/api/v1/districts/getDistrictByProvinceId?proviceId=20';
 
   const params = {
     headers: {

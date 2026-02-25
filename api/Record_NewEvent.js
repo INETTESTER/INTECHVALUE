@@ -1,5 +1,5 @@
 import http from 'k6/http';
-import { token } from './env.js';
+import { token, url_, url_2 } from './env.js';
 import { SharedArray } from 'k6/data';
 const data2 = new SharedArray('id', function () {
   const json = JSON.parse(open('../file/areas.json'));
@@ -7,8 +7,7 @@ const data2 = new SharedArray('id', function () {
 });
 export function Record_NewEvent(scenario, areaId) {
   const id = data2[scenario.iterationInTest];
-  //const url = 'https://api.thunderinsure.com/api/v1/activity/newPlants';
-  const url = 'https://api2.thunderinsure.com/api/v1/activity/newPlants';
+  const url = url_ + '/api/v1/activity/newPlants';
 
   const payload = {
     //id: '' + id,

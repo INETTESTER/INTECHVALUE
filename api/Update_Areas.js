@@ -1,5 +1,5 @@
 import http from 'k6/http';
-import { token } from './env.js';
+import { token, url_, url_2 } from './env.js';
 import { SharedArray } from 'k6/data';
 const data = new SharedArray('land_no', function () {
   const json = JSON.parse(open('../file/areas.json'));
@@ -10,7 +10,7 @@ const data2 = new SharedArray('id', function () {
   return json.data.map(item => item.id);
 });
 
-export function Update_Areas(scenario,areaId,landNo) {
+export function Update_Areas(scenario, areaId, landNo) {
   const land_no = data[scenario.iterationInTest];
   const id = data2[scenario.iterationInTest];
   // console.log(land_no);
@@ -21,7 +21,7 @@ export function Update_Areas(scenario,areaId,landNo) {
   //   land_no: '' + land_no,
   //   approveSts: 2,
   // });
-  const url = 'https://api.thunderinsure.com/api/v1/areas/' + areaId;
+  const url = url_ + '/api/v1/areas/' + areaId;
 
   const payload = JSON.stringify({
     land_no: '' + landNo,

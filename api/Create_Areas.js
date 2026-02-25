@@ -1,5 +1,5 @@
 import http from 'k6/http';
-import { token } from './env.js';
+import { token, url_, url_2 } from './env.js';
 
 const imgPath = open('../file/image.png', 'b'); // เปิดไฟล์ใน init stage
 
@@ -21,8 +21,7 @@ export function Create_Areas(cid) {
     //console.log(land_no);
 
 
-    //const url = 'https://api.thunderinsure.com/api/v1/areas';
-    const url = 'https://api2.thunderinsure.com/api/v1/areas';
+    const url = url_2 + '/api/v1/areas';
     const payload = {
         land_no: '' + land_no,
         name: '-',

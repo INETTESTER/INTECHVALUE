@@ -1,8 +1,8 @@
 import http from 'k6/http';
-import { token } from './env.js';
+import { token, url_, url_2 } from './env.js';
 
 export function GetCoordinatesByZoneId() {
-  const url = 'https://api.thunderinsure.com/api/v1/area/getCoordinatesByZoneId?zone_id=1&production_year_id=9';
+  const url = url_ + '/api/v1/area/getCoordinatesByZoneId?zone_id=1&production_year_id=9';
 
   const params = {
     headers: {

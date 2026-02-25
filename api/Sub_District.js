@@ -1,8 +1,8 @@
 import http from 'k6/http';
-import { token } from './env.js';
+import { token, url_, url_2 } from './env.js';
 
 export function Sub_District() {
-  const url = 'https://api.thunderinsure.com/api/v1/subDistricts/getSubDistrictsByDistrictId?districtId=230';
+  const url = url_ + '/api/v1/subDistricts/getSubDistrictsByDistrictId?districtId=230';
 
   const params = {
     headers: {

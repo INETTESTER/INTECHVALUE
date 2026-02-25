@@ -1,9 +1,8 @@
 import http from 'k6/http';
-import { token } from './env.js';
+import { token, url_, url_2 } from './env.js';
 
 export function Areas_per500() {
-  //const url = 'https://api.thunderinsure.com/api/v1/area/dataAreas?per_page=500&page=1';
-  const url = 'https://api2.thunderinsure.com/api/v1/area/dataAreas?per_page=500&page=1';
+  const url = url_2 + '/api/v1/area/dataAreas?per_page=500&page=1';
 
   const params = {
     headers: {

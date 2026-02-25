@@ -1,8 +1,8 @@
 import http from 'k6/http';
-import { token } from './env.js';
+import { token, url_, url_2 } from './env.js';
 
 export function Areas_All() {
-  const url = 'https://api.thunderinsure.com/api/v1/areas';
+  const url = url_ + '/api/v1/areas';
 
   const params = {
     headers: {

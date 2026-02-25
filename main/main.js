@@ -25,44 +25,45 @@ import { API_root } from '../api/API_root.js';
 //============================================================================
 
 export default function () {    //เรียกใช้ API ใน export default function
-  //========= Scenario Mobile ===================================
-  response = Login()
-  error_check(response);
-  if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
-    console.log("เข้าสูระบบ Fail : " + response.status);
-    return;
-  }
-  sleep(1);
+  //=============================== Start Scenario Mobile ========================================
+  // response = Login()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("เข้าสูระบบ Fail : " + response.status);
+  //   return;
+  // }
+  // sleep(1);
 
-  response = Create_Areas(cid)
-  error_check(response);
-  if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
-    console.log("สร้างข้อมูลแปลง Fail : " + response.status);
-    return;
-  }
-  const data = response.json();
-  const areaId = data.id;
-  const landNo = data.land_no;
-  sleep(1);
+  // response = Create_Areas(cid)
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("สร้างข้อมูลแปลง Fail : " + response.status);
+  //   return;
+  // }
+  // const data = response.json();
+  // const areaId = data.id;
+  // const landNo = data.land_no;
+  // sleep(1);
 
-  response = Areas_per500()
-  error_check(response);
-  if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
-    console.log("ดาวน์โหลดข้อมูลแปลง Fail : " + response.status);
-    return;
-  }
-  sleep(1);
+  // response = Areas_per500()
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("ดาวน์โหลดข้อมูลแปลง Fail : " + response.status);
+  //   return;
+  // }
+  // sleep(1);
 
-  response = Record_NewEvent(scenario, areaId)
-  error_check(response);
-  if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
-    console.log("บันทึกกิจกรรมปลูกใหม่ Fail : " + response.status);
-    return;
-  }
-  sleep(1);
+  // response = Record_NewEvent(scenario, areaId)
+  // error_check(response);
+  // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
+  //   console.log("บันทึกกิจกรรมปลูกใหม่ Fail : " + response.status);
+  //   return;
+  // }
+  // sleep(1);
+  //================================ END Scenario Mobile ===========================================
 
 
-  //========= Scenario Frontend ===================================
+  //================================ Start Scenario Frontend =========================================
   // response = Login()
   // error_check(response);
   // if (!response || response.error_code || (response.status !== 200 && response.status !== 201 && response.status !== 204)) {
@@ -133,6 +134,7 @@ export default function () {    //เรียกใช้ API ใน export def
   //   console.log("ปีการผลิต Fail : " + response.status);
   // }
   // sleep(1);
+  //====================================== END Scenario Frontend =============================================
 
 
 
@@ -240,9 +242,9 @@ export default function () {    //เรียกใช้ API ใน export def
 
   // ===================================================================================================
   // response = Create_Areas(cid)
-  // response = API_root()
+  //response = API_root()
   // response = Areas_per500()
-  // error_check(response);
+  //error_check(response);
   // sleep(1)
 }
 
