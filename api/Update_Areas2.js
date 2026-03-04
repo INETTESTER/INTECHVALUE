@@ -1,24 +1,24 @@
 import http from 'k6/http';
 import { token, url_, url_2 } from './env.js';
-import { SharedArray } from 'k6/data';
-const data = new SharedArray('land_no', function () {
-  const json = JSON.parse(open('../file/areas.json'));
-  return json.data.map(item => item.land_no);
-});
-const data2 = new SharedArray('id', function () {
-  const json = JSON.parse(open('../file/areas.json'));
-  return json.data.map(item => item.id);
-});
+// import { SharedArray } from 'k6/data';
+// const data = new SharedArray('land_no', function () {
+//   const json = JSON.parse(open('../file/areas.json'));
+//   return json.data.map(item => item.land_no);
+// });
+// const data2 = new SharedArray('id', function () {
+//   const json = JSON.parse(open('../file/areas.json'));
+//   return json.data.map(item => item.id);
+// });
 
-export function Update_Areas2(scenario) {
-  const land_no = data[scenario.iterationInTest];
-  const id = data2[scenario.iterationInTest];
+export function Update_Areas2() {
+  // const land_no = data[scenario.iterationInTest];
+  // const id = data2[scenario.iterationInTest];
   // console.log(land_no);
   // console.log(id);
-  const url = url_ + '/api/v1/areas/' + id;
+  const url = url_ + '/api/v1/areas/25045';
 
   const payload = JSON.stringify({
-    land_no: '' + land_no,
+    land_no: 'dummy69a7a612727e2',
     approveSts: 2,
   });
 
