@@ -5,10 +5,10 @@ export function Login() {
   const payload = {
     client_id: 'laravel-api',
     username: 'SV013',
-    password: '8888',
+    password: 'Changeme1!',
     grant_type: 'password',
     scope: 'openid profile email',
-    client_secret: '2ceuJyxkl1DmoEeCQa/Y0tR8UrDRAVIxLWOPio9W',
+    client_secret: 'h6EHTplFqEc3KRukQzh7quihBefUSMQS',
   };
   const params = {
     headers: {
@@ -16,6 +16,6 @@ export function Login() {
     },
   };
   const response = http.post(url, payload, params);
-  //console.log('Response body:', response.body);
+  console.log('Response body:', response.body);
   return response;
 }

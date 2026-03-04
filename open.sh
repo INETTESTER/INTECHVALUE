@@ -4,13 +4,13 @@
 ##########################################################################
 ##########################################################################
 ##########################################################################
-                     API="template" 
+                     API="Frontend" #//Mobile // Frontend
                      google_sheet="https://docs.google.com/spreadsheets/d/1MXJ0xm22Y4xktnULICOPsNNi6hY9MNle18j_LrsclDI/edit?gid=303761516#gid=303761516" 
-                     id="2"                 #เปลี่ยน id ทุกครั้งที่ยิง
-                     user="1";            #จำนวนผู้ใช้งาน
-                     duration="1";         #วินาที
-                     scenario="1"           #scenario="1" ยิงเเบบกำหนด request (duration ได้แค่ 1 วินาที)
-                     cid="2"                #scenario="2" ยิงเเบบกำหนด VUs  (กำหนดว่า user x คน ใช้ระบบ x วินาที)
+                     id="11"                 #เปลี่ยน id ทุกครั้งที่ยิง
+                     user="500";            #จำนวนผู้ใช้งาน
+                     duration="300";         #วินาที
+                     scenario="4"           #scenario="1" ยิงเเบบกำหนด request (duration ได้แค่ 1 วินาที)
+                     cid="15"                #scenario="2" ยิงเเบบกำหนด VUs  (กำหนดว่า user x คน ใช้ระบบ x วินาที)
                                             #scenario="3" ยิงเเบบกำหนด request แต่ไม่แม่นยำ (duration กี่วินาทีก็ได้)
                      status="normal"        #พิมพ์คำว่า "normal" เพื่อยิงโหลดเเละ upload report ไปที่ sheet
                                             #พิมพ์คำว่า "report" upload report ล่าสุดไปที่ sheet
