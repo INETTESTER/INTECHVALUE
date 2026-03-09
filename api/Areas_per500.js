@@ -2,7 +2,7 @@ import http from 'k6/http';
 import { token, url_, url_2 } from './env.js';
 
 export function Areas_per500() {
-  const url = url_ + '/api/v1/area/dataAreas?per_page=500&page=1';
+  const url = url_ + '/api/v1/area/dataAreas2?page=2&per_page=500';
 
   const params = {
     headers: {
